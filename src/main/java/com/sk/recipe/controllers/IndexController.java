@@ -12,6 +12,9 @@ import com.sk.recipe.repositories.CategoryRepository;
 import com.sk.recipe.repositories.UnitOfMeasureRepository;
 import com.sk.recipe.services.RecipeService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class IndexController {
 	
@@ -26,6 +29,7 @@ public class IndexController {
 
 	@RequestMapping({"","/","/Index"})
 	public String getIndexPage(Model model) {
+		log.debug("Getting Index Page");
 		model.addAttribute("recipes",recipeService.getRecipe());
 		return "Index";
 	}
